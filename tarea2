@@ -1,0 +1,38 @@
+package Taller_inicial;
+import java.util.Scanner;
+
+public class tarea2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el tipo de animal (perro, gato, ave, otro): ");
+        String tipoAnimal = scanner.nextLine().toLowerCase();
+
+        System.out.print("Ingrese la edad del animal en años Ej. 1,2,3,4 etc: ");
+        int edad = scanner.nextInt();
+
+        String veterinario;
+        switch (tipoAnimal) {
+            case "perro":
+                veterinario = "Doctor. Delgado (especialista en perros)";
+                break;
+            case "gato":
+                veterinario = "Doctora. Johana (especialista en gatos)";
+                break;
+            case "ave":
+                veterinario = "Doctor Pedro (especialista en aves)";
+                break;
+            default:
+                veterinario = "Doctor Martin (generalista)";
+        }
+
+        boolean vacunacion = (tipoAnimal.equals("perro") || tipoAnimal.equals("gato")) && edad > 5;
+
+        System.out.println("\nVeterinario asignado: " + veterinario);
+        if (vacunacion) {
+            System.out.println("Se recomienda una vacunación adicional para " + tipoAnimal + " mayor de 5 años.");
+        } else {
+            System.out.println("No se requiere vacunación adicional.");
+        }
+    }
+}
