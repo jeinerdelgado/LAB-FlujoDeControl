@@ -1,0 +1,36 @@
+package Taller_inicial;
+import java.util.Scanner;
+
+public class tarea3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el tipo de vehículo (auto, moto, bicicleta): ");
+        String tipoVehiculo = scanner.nextLine().toLowerCase();
+
+        System.out.print("Ingrese la hora de llegada (formato 24 horas): ");
+        int horaLlegada = scanner.nextInt();
+        scanner.nextLine();
+
+        double tarifaBase;
+        switch (tipoVehiculo) {
+            case "auto":
+                tarifaBase = 10000;
+                break;
+            case "moto":
+                tarifaBase = 5000;
+                break;
+            case "bicicleta":
+                tarifaBase = 1000;
+                break;
+            default:
+                System.out.println("Tipo de vehículo no válido.");
+                return;
+        }
+
+        double recargo = (horaLlegada >= 20) ? tarifaBase * 0.20 : 0;
+        double costoTotal = tarifaBase + recargo;
+
+        System.out.println("\nCosto total del parqueo: $" + costoTotal);
+    }
+}
