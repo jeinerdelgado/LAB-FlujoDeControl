@@ -1,0 +1,32 @@
+package Taller_inicial;
+import java.util.Scanner;
+
+public class tarea1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el total de la compra: ");
+        double totalCompra = scanner.nextDouble();
+
+        System.out.print("¿Cuántos productos compró?: ");
+        int Productos = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("¿Tiene membresía? (si/no): ");
+        String Membresia = scanner.nextLine().toLowerCase();
+
+        double descuento = 0;
+
+        if (Membresia.equals("si")) {
+            descuento += 0.10;
+        }
+
+        if (Productos > 10) {
+            descuento += 0.05;
+        }
+
+        double totalFinal = totalCompra - (totalCompra * descuento);
+
+        System.out.println("Total compra con descuentos aplicados: $" + totalFinal);
+    }
+}
